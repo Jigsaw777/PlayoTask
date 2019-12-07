@@ -10,37 +10,54 @@
 9        android:targetSdkVersion="29" />
 9-->/home/jigsaw/Desktop/PlayoTasks/PlayoTask/TaskFiles/app/src/main/AndroidManifest.xml
 10
-11    <application
-11-->/home/jigsaw/Desktop/PlayoTasks/PlayoTask/TaskFiles/app/src/main/AndroidManifest.xml:5:5-19:19
-12        android:allowBackup="true"
-12-->/home/jigsaw/Desktop/PlayoTasks/PlayoTask/TaskFiles/app/src/main/AndroidManifest.xml:6:9-35
-13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-13-->[androidx.core:core:1.1.0] /home/jigsaw/.gradle/caches/transforms-2/files-2.1/f01b27bb220ecb79298884ef36a7a2fb/core-1.1.0/AndroidManifest.xml:24:18-86
-14        android:debuggable="true"
-15        android:icon="@mipmap/ic_launcher"
-15-->/home/jigsaw/Desktop/PlayoTasks/PlayoTask/TaskFiles/app/src/main/AndroidManifest.xml:7:9-43
-16        android:label="@string/app_name"
-16-->/home/jigsaw/Desktop/PlayoTasks/PlayoTask/TaskFiles/app/src/main/AndroidManifest.xml:8:9-41
-17        android:roundIcon="@mipmap/ic_launcher_round"
-17-->/home/jigsaw/Desktop/PlayoTasks/PlayoTask/TaskFiles/app/src/main/AndroidManifest.xml:9:9-54
-18        android:supportsRtl="true"
-18-->/home/jigsaw/Desktop/PlayoTasks/PlayoTask/TaskFiles/app/src/main/AndroidManifest.xml:10:9-35
-19        android:theme="@style/AppTheme" >
-19-->/home/jigsaw/Desktop/PlayoTasks/PlayoTask/TaskFiles/app/src/main/AndroidManifest.xml:11:9-40
-20        <activity android:name="com.example.playotesttask.MainActivity" >
-20-->/home/jigsaw/Desktop/PlayoTasks/PlayoTask/TaskFiles/app/src/main/AndroidManifest.xml:12:9-18:20
-20-->/home/jigsaw/Desktop/PlayoTasks/PlayoTask/TaskFiles/app/src/main/AndroidManifest.xml:12:19-47
-21            <intent-filter>
-21-->/home/jigsaw/Desktop/PlayoTasks/PlayoTask/TaskFiles/app/src/main/AndroidManifest.xml:13:13-17:29
-22                <action android:name="android.intent.action.MAIN" />
-22-->/home/jigsaw/Desktop/PlayoTasks/PlayoTask/TaskFiles/app/src/main/AndroidManifest.xml:14:17-69
-22-->/home/jigsaw/Desktop/PlayoTasks/PlayoTask/TaskFiles/app/src/main/AndroidManifest.xml:14:25-66
-23
-24                <category android:name="android.intent.category.LAUNCHER" />
-24-->/home/jigsaw/Desktop/PlayoTasks/PlayoTask/TaskFiles/app/src/main/AndroidManifest.xml:16:17-77
-24-->/home/jigsaw/Desktop/PlayoTasks/PlayoTask/TaskFiles/app/src/main/AndroidManifest.xml:16:27-74
-25            </intent-filter>
-26        </activity>
-27    </application>
-28
-29</manifest>
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->/home/jigsaw/Desktop/PlayoTasks/PlayoTask/TaskFiles/app/src/main/AndroidManifest.xml:5:5-66
+11-->/home/jigsaw/Desktop/PlayoTasks/PlayoTask/TaskFiles/app/src/main/AndroidManifest.xml:5:22-64
+12
+13    <application
+13-->/home/jigsaw/Desktop/PlayoTasks/PlayoTask/TaskFiles/app/src/main/AndroidManifest.xml:7:5-21:19
+14        android:name="androidx.multidex.MultiDexApplication"
+15        android:allowBackup="true"
+15-->/home/jigsaw/Desktop/PlayoTasks/PlayoTask/TaskFiles/app/src/main/AndroidManifest.xml:8:9-35
+16        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+16-->[androidx.core:core:1.2.0-rc01] /home/jigsaw/.gradle/caches/transforms-2/files-2.1/7aba7ff4d17754d5bebb26232f2a86cb/core-1.2.0-rc01/AndroidManifest.xml:24:18-86
+17        android:debuggable="true"
+18        android:icon="@mipmap/ic_launcher"
+18-->/home/jigsaw/Desktop/PlayoTasks/PlayoTask/TaskFiles/app/src/main/AndroidManifest.xml:9:9-43
+19        android:label="@string/app_name"
+19-->/home/jigsaw/Desktop/PlayoTasks/PlayoTask/TaskFiles/app/src/main/AndroidManifest.xml:10:9-41
+20        android:roundIcon="@mipmap/ic_launcher_round"
+20-->/home/jigsaw/Desktop/PlayoTasks/PlayoTask/TaskFiles/app/src/main/AndroidManifest.xml:11:9-54
+21        android:supportsRtl="true"
+21-->/home/jigsaw/Desktop/PlayoTasks/PlayoTask/TaskFiles/app/src/main/AndroidManifest.xml:12:9-35
+22        android:testOnly="true"
+23        android:theme="@style/AppTheme" >
+23-->/home/jigsaw/Desktop/PlayoTasks/PlayoTask/TaskFiles/app/src/main/AndroidManifest.xml:13:9-40
+24        <activity android:name="com.example.playotesttask.ui.MainActivity" >
+24-->/home/jigsaw/Desktop/PlayoTasks/PlayoTask/TaskFiles/app/src/main/AndroidManifest.xml:14:9-20:20
+24-->/home/jigsaw/Desktop/PlayoTasks/PlayoTask/TaskFiles/app/src/main/AndroidManifest.xml:14:19-50
+25            <intent-filter>
+25-->/home/jigsaw/Desktop/PlayoTasks/PlayoTask/TaskFiles/app/src/main/AndroidManifest.xml:15:13-19:29
+26                <action android:name="android.intent.action.MAIN" />
+26-->/home/jigsaw/Desktop/PlayoTasks/PlayoTask/TaskFiles/app/src/main/AndroidManifest.xml:16:17-69
+26-->/home/jigsaw/Desktop/PlayoTasks/PlayoTask/TaskFiles/app/src/main/AndroidManifest.xml:16:25-66
+27
+28                <category android:name="android.intent.category.LAUNCHER" />
+28-->/home/jigsaw/Desktop/PlayoTasks/PlayoTask/TaskFiles/app/src/main/AndroidManifest.xml:18:17-77
+28-->/home/jigsaw/Desktop/PlayoTasks/PlayoTask/TaskFiles/app/src/main/AndroidManifest.xml:18:27-74
+29            </intent-filter>
+30        </activity>
+31
+32        <provider
+32-->[androidx.lifecycle:lifecycle-process:2.2.0-rc02] /home/jigsaw/.gradle/caches/transforms-2/files-2.1/789443f34303da1edef03874eab5645d/lifecycle-process-2.2.0-rc02/AndroidManifest.xml:25:9-29:43
+33            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+33-->[androidx.lifecycle:lifecycle-process:2.2.0-rc02] /home/jigsaw/.gradle/caches/transforms-2/files-2.1/789443f34303da1edef03874eab5645d/lifecycle-process-2.2.0-rc02/AndroidManifest.xml:26:13-79
+34            android:authorities="com.example.playotesttask.lifecycle-process"
+34-->[androidx.lifecycle:lifecycle-process:2.2.0-rc02] /home/jigsaw/.gradle/caches/transforms-2/files-2.1/789443f34303da1edef03874eab5645d/lifecycle-process-2.2.0-rc02/AndroidManifest.xml:27:13-69
+35            android:exported="false"
+35-->[androidx.lifecycle:lifecycle-process:2.2.0-rc02] /home/jigsaw/.gradle/caches/transforms-2/files-2.1/789443f34303da1edef03874eab5645d/lifecycle-process-2.2.0-rc02/AndroidManifest.xml:28:13-37
+36            android:multiprocess="true" />
+36-->[androidx.lifecycle:lifecycle-process:2.2.0-rc02] /home/jigsaw/.gradle/caches/transforms-2/files-2.1/789443f34303da1edef03874eab5645d/lifecycle-process-2.2.0-rc02/AndroidManifest.xml:29:13-40
+37    </application>
+38
+39</manifest>
