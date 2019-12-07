@@ -20,9 +20,11 @@ public class MainViewModel extends AndroidViewModel {
         networkManager = new NetworkManager();
     }
 
+    public MutableLiveData<SearchResponse> getSearchLivedata(){
+        return searchResponseLiveData;
+    }
 
-    public MutableLiveData<SearchResponse> getSearchResults(String keyword){
-        Log.v(tag,"searching");
-        return networkManager.getSearchResultResponse(keyword,searchResponseLiveData);
+    public void getSearchResults(String keyword){
+        networkManager.getSearchResultResponse(keyword,searchResponseLiveData);
     }
 }

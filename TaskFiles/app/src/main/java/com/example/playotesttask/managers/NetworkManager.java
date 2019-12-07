@@ -36,17 +36,13 @@ public class NetworkManager {
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.v("NetworkM","search response");
                         searchResponseMutableLiveData.postValue(null);
                         e.printStackTrace();
                     }
 
                     @Override
                     public void onNext(Response<SearchResponse> searchResponseResponse) {
-                        Log.v("NetworkM","search response : "+searchResponseResponse.code());
                         if(searchResponseResponse.code()==200){
-                            Log.v("NetworkM","search response : "+searchResponseResponse.toString());
-                            Log.v(TAG,searchResponseResponse.body().toString());
                             searchResponseMutableLiveData.postValue(searchResponseResponse.body());
                         }
                         else{

@@ -698,6 +698,7 @@ drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable ic_search_black_24dp
 drawable notification_action_background
 drawable notification_bg
 drawable notification_bg_low
@@ -805,6 +806,7 @@ id disableHome
 id edit_query
 id end
 id end_padder
+id et_search_word
 id expand_activities_button
 id expanded_menu
 id fill
@@ -852,6 +854,7 @@ id radio
 id right
 id right_icon
 id right_side
+id rv_news_items
 id screen
 id scrollIndicatorDown
 id scrollIndicatorUp
@@ -862,6 +865,7 @@ id search_button
 id search_close_btn
 id search_edit_frame
 id search_go_btn
+id search_image
 id search_mag_icon
 id search_plate
 id search_src_text
