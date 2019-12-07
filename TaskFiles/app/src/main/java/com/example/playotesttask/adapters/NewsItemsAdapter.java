@@ -37,7 +37,7 @@ public class NewsItemsAdapter extends RecyclerView.Adapter<NewsItemsAdapter.News
     public void addItems(List<Hit> hitResponseListNew){
         int lastindex=hitResponseList.size();
         hitResponseList.addAll(lastindex,hitResponseListNew);
-        notifyItemChanged(lastindex);
+        notifyItemRangeInserted(lastindex,hitResponseListNew.size());
     }
 
     public MutableLiveData<String> getUrlLiveData(){

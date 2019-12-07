@@ -830,6 +830,7 @@ id dimensions
 id direct
 id disableHome
 id edit_query
+id empty_layout
 id end
 id end_padder
 id et_search_word

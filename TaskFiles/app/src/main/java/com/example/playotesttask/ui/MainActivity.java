@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AbsListView;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayoutManager linearLayoutManager;
     private int currItems,totItems,scrollOutItems;
     static int page=0;
+    private LinearLayout empty_layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         pb_bottom=findViewById(R.id.pb_bottom);
         newsItemsAdapter = new NewsItemsAdapter(this);
         linearLayoutManager=new LinearLayoutManager(this);
+        empty_layout=findViewById(R.id.empty_layout);
         rv_news_items.setLayoutManager(linearLayoutManager);
         rv_news_items.setAdapter(newsItemsAdapter);
 
@@ -106,14 +109,22 @@ public class MainActivity extends AppCompatActivity {
 
     private Observer<SearchResponse> searchObserver = searchResponse -> {
         if (searchResponse != null) {
-            if(page==0){
-            newsItemsAdapter.setItems(searchResponse.getHits());}
-            else{
-                newsItemsAdapter.addItems(searchResponse.getHits());
+            if(searchResponse.getHits().size() == 0){
+                empty_layout.setVisibility(View.VISIBLE);
+            }else {
+                empty_layout.setVisibility(View.GONE);
+                if (page == 0) {
+                    newsItemsAdapter.setItems(searchResponse.getHits());
+                } else {
+                    newsItemsAdapter.addItems(searchResponse.getHits());
+                }
             }
-            pb_loading.setVisibility(View.GONE);
-            pb_bottom.setVisibility(View.GONE);
         }
+        else{
+            empty_layout.setVisibility(View.VISIBLE);
+        }
+        pb_loading.setVisibility(View.GONE);
+        pb_bottom.setVisibility(View.GONE);
     };
 
     private Observer<String> openUrl = s -> {
