@@ -876,6 +876,7 @@ id on
 id packed
 id parent
 id parentPanel
+id pb_loading
 id percent
 id progress_circular
 id progress_horizontal

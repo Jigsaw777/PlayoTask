@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageView search_image;
     private RecyclerView rv_news_items;
     private NewsItemsAdapter newsItemsAdapter;
+    ProgressBar pb_loading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,26 +43,33 @@ public class MainActivity extends AppCompatActivity {
         mainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
         observeSearch();
 
-        searchWord=findViewById(R.id.et_search_word);
-        search_image=findViewById(R.id.search_image);
-        rv_news_items=findViewById(R.id.rv_news_items);
-        newsItemsAdapter=new NewsItemsAdapter(this);
+        searchWord = findViewById(R.id.et_search_word);
+        search_image = findViewById(R.id.search_image);
+        rv_news_items = findViewById(R.id.rv_news_items);
+        pb_loading = findViewById(R.id.pb_loading);
+        newsItemsAdapter = new NewsItemsAdapter(this);
         rv_news_items.setLayoutManager(new LinearLayoutManager(this));
         rv_news_items.setAdapter(newsItemsAdapter);
 
-        search_image.setOnClickListener(v -> mainViewModel.getSearchResults(searchWord.getText().toString().trim()));
+        search_image.setOnClickListener(v -> {
+            pb_loading.setVisibility(View.VISIBLE);
+            mainViewModel.getSearchResults(searchWord.getText().toString().trim());
+        });
     }
 
     public void observeSearch() {
         mainViewModel.getSearchLivedata().observe(this, searchObserver);
     }
 
-    public void observeOpenUrl(){
-        newsItemsAdapter.getUrlLiveData().observe(this,openUrl);
+    public void observeOpenUrl() {
+        newsItemsAdapter.getUrlLiveData().observe(this, openUrl);
     }
 
     private Observer<SearchResponse> searchObserver = searchResponse -> {
-        newsItemsAdapter.setItems(searchResponse.getHits());
+        if (searchResponse != null) {
+            newsItemsAdapter.setItems(searchResponse.getHits());
+            pb_loading.setVisibility(View.GONE);
+        }
     };
 
     private Observer<String> openUrl = s -> {

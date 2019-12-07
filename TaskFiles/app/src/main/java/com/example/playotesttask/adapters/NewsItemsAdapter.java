@@ -98,7 +98,7 @@ public class NewsItemsAdapter extends RecyclerView.Adapter<NewsItemsAdapter.News
             for(int  i=0;i<tags.size();i++){
                 TextView tv=new TextView(context);
                 tv.setPadding(6,2,6,2);
-                params.setMargins(6,2,6,4);
+                params.setMargins(6,2,6,2);
                 tv.setBackgroundColor(Color.parseColor("#add8e6"));
                 tv.setTextColor(Color.parseColor("#0000ff"));
                 tv.setLayoutParams(params);
