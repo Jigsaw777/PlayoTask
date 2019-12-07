@@ -24,7 +24,7 @@ public class MainViewModel extends AndroidViewModel {
         return searchResponseLiveData;
     }
 
-    public void getSearchResults(String keyword){
-        networkManager.getSearchResultResponse(keyword,searchResponseLiveData);
+    public void getSearchResults(String keyword, Integer page){
+        networkManager.getSearchResultResponse(keyword,page,searchResponseLiveData);
     }
 }

@@ -29,8 +29,15 @@ public class NewsItemsAdapter extends RecyclerView.Adapter<NewsItemsAdapter.News
     }
 
     public void setItems(List<Hit> hitResponseList){
+        this.hitResponseList.clear();
         this.hitResponseList=hitResponseList;
         notifyDataSetChanged();
+    }
+
+    public void addItems(List<Hit> hitResponseListNew){
+        int lastindex=hitResponseList.size();
+        hitResponseList.addAll(lastindex,hitResponseListNew);
+        notifyItemChanged(lastindex);
     }
 
     public MutableLiveData<String> getUrlLiveData(){
@@ -45,6 +52,7 @@ public class NewsItemsAdapter extends RecyclerView.Adapter<NewsItemsAdapter.News
 
     @Override
     public void onBindViewHolder(@NonNull NewsItemsViewHolder holder, int position) {
+        holder.tagLayout.removeAllViews();
         holder.setData(hitResponseList.get(position));
     }
 

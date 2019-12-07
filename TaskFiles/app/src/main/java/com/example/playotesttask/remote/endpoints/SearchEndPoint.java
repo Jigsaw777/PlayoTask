@@ -11,5 +11,5 @@ import rx.Observable;
 public interface SearchEndPoint {
 
     @GET("search")
-    Observable<Response<SearchResponse>> getSearchResultsQuery(@Query("query")String input);
+    Observable<Response<SearchResponse>> getSearchResultsQuery(@Query("query")String input,@Query("page")Integer number);
 }

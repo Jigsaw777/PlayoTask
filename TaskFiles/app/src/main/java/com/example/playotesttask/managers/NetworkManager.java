@@ -24,8 +24,8 @@ public class NetworkManager {
         retrofitManager=new RetrofitManager();
     }
 
-    public MutableLiveData<SearchResponse> getSearchResultResponse(String keyword, final MutableLiveData<SearchResponse> searchResponseMutableLiveData){
-        retrofitManager.getSearchResults().getSearchResultsQuery(keyword)
+    public MutableLiveData<SearchResponse>  getSearchResultResponse(String keyword,Integer page, final MutableLiveData<SearchResponse> searchResponseMutableLiveData){
+        retrofitManager.getSearchResults().getSearchResultsQuery(keyword,page)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<Response<SearchResponse>>() {

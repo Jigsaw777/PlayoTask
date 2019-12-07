@@ -3,14 +3,15 @@ package com.example.playotesttask.ui;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -29,7 +30,12 @@ public class MainActivity extends AppCompatActivity {
     private ImageView search_image;
     private RecyclerView rv_news_items;
     private NewsItemsAdapter newsItemsAdapter;
-    ProgressBar pb_loading;
+    ProgressBar pb_loading, pb_bottom;
+    private MutableLiveData<Integer> pageNumber = new MutableLiveData<>();
+    private Boolean isScrolling =false;
+    private LinearLayoutManager linearLayoutManager;
+    private int currItems,totItems,scrollOutItems;
+    static int page=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         init();
         observeOpenUrl();
+        observePageNumber();
     }
 
     public void init() {
@@ -47,13 +54,41 @@ public class MainActivity extends AppCompatActivity {
         search_image = findViewById(R.id.search_image);
         rv_news_items = findViewById(R.id.rv_news_items);
         pb_loading = findViewById(R.id.pb_loading);
+        pb_bottom=findViewById(R.id.pb_bottom);
         newsItemsAdapter = new NewsItemsAdapter(this);
-        rv_news_items.setLayoutManager(new LinearLayoutManager(this));
+        linearLayoutManager=new LinearLayoutManager(this);
+        rv_news_items.setLayoutManager(linearLayoutManager);
         rv_news_items.setAdapter(newsItemsAdapter);
 
         search_image.setOnClickListener(v -> {
+            page=0;
             pb_loading.setVisibility(View.VISIBLE);
-            mainViewModel.getSearchResults(searchWord.getText().toString().trim());
+            mainViewModel.getSearchResults(searchWord.getText().toString().trim(),page);
+        });
+
+        rv_news_items.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                if(newState == AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL){
+                    isScrolling =true;
+                }
+            }
+
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                currItems=linearLayoutManager.getChildCount();
+                totItems=linearLayoutManager.getItemCount();
+                scrollOutItems=linearLayoutManager.findFirstVisibleItemPosition();
+
+                if(isScrolling && (currItems+scrollOutItems==totItems))
+                {
+                    isScrolling=false;
+                    page=page+1;
+                    pageNumber.postValue(page);
+                }
+            }
         });
     }
 
@@ -65,15 +100,29 @@ public class MainActivity extends AppCompatActivity {
         newsItemsAdapter.getUrlLiveData().observe(this, openUrl);
     }
 
+    public void observePageNumber(){
+        pageNumber.observe(this,pageNumberObserver);
+    }
+
     private Observer<SearchResponse> searchObserver = searchResponse -> {
         if (searchResponse != null) {
-            newsItemsAdapter.setItems(searchResponse.getHits());
+            if(page==0){
+            newsItemsAdapter.setItems(searchResponse.getHits());}
+            else{
+                newsItemsAdapter.addItems(searchResponse.getHits());
+            }
             pb_loading.setVisibility(View.GONE);
+            pb_bottom.setVisibility(View.GONE);
         }
     };
 
     private Observer<String> openUrl = s -> {
         Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(s));
         startActivity(browserIntent);
+    };
+
+    private Observer<Integer> pageNumberObserver = integer -> {
+        pb_bottom.setVisibility(View.VISIBLE);
+        mainViewModel.getSearchResults(searchWord.getText().toString().trim(),integer);
     };
 }
