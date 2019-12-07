@@ -1,9 +1,11 @@
 package com.example.playotesttask.ui;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AbsListView;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -12,6 +14,7 @@ import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -38,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     private int currItems,totItems,scrollOutItems;
     static int page=0;
     private LinearLayout empty_layout;
+    private ConstraintLayout main_layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,9 +66,12 @@ public class MainActivity extends AppCompatActivity {
         empty_layout=findViewById(R.id.empty_layout);
         rv_news_items.setLayoutManager(linearLayoutManager);
         rv_news_items.setAdapter(newsItemsAdapter);
+        main_layout=findViewById(R.id.main_layout);
 
         search_image.setOnClickListener(v -> {
             page=0;
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(searchWord.getWindowToken(), 0);
             pb_loading.setVisibility(View.VISIBLE);
             mainViewModel.getSearchResults(searchWord.getText().toString().trim(),page);
         });
@@ -111,8 +118,10 @@ public class MainActivity extends AppCompatActivity {
         if (searchResponse != null) {
             if(searchResponse.getHits().size() == 0){
                 empty_layout.setVisibility(View.VISIBLE);
+                main_layout.setVisibility(View.GONE);
             }else {
                 empty_layout.setVisibility(View.GONE);
+                main_layout.setVisibility(View.VISIBLE);
                 if (page == 0) {
                     newsItemsAdapter.setItems(searchResponse.getHits());
                 } else {
@@ -122,6 +131,7 @@ public class MainActivity extends AppCompatActivity {
         }
         else{
             empty_layout.setVisibility(View.VISIBLE);
+            main_layout.setVisibility(View.GONE);
         }
         pb_loading.setVisibility(View.GONE);
         pb_bottom.setVisibility(View.GONE);
