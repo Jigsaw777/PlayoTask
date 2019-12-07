@@ -1,5 +1,7 @@
 package com.example.playotesttask.ui;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
+        observeOpenUrl();
     }
 
     public void init() {
@@ -52,7 +55,16 @@ public class MainActivity extends AppCompatActivity {
         mainViewModel.getSearchLivedata().observe(this, searchObserver);
     }
 
+    public void observeOpenUrl(){
+        newsItemsAdapter.getUrlLiveData().observe(this,openUrl);
+    }
+
     private Observer<SearchResponse> searchObserver = searchResponse -> {
         newsItemsAdapter.setItems(searchResponse.getHits());
+    };
+
+    private Observer<String> openUrl = s -> {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(s));
+        startActivity(browserIntent);
     };
 }

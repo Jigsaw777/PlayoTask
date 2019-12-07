@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.MutableLiveData;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.playotesttask.R;
@@ -19,6 +20,7 @@ public class NewsItemsAdapter extends RecyclerView.Adapter<NewsItemsAdapter.News
 
     private Context context;
     private List<Hit> hitResponseList = new ArrayList<>();
+    private MutableLiveData<String> urlLiveData=new MutableLiveData<>();
 
     public NewsItemsAdapter(Context context){
         this.context = context;
@@ -27,6 +29,10 @@ public class NewsItemsAdapter extends RecyclerView.Adapter<NewsItemsAdapter.News
     public void setItems(List<Hit> hitResponseList){
         this.hitResponseList=hitResponseList;
         notifyDataSetChanged();
+    }
+
+    public MutableLiveData<String> getUrlLiveData(){
+        return urlLiveData;
     }
 
     @NonNull
@@ -65,6 +71,7 @@ public class NewsItemsAdapter extends RecyclerView.Adapter<NewsItemsAdapter.News
             tv_comment.setText(data.getNumComments().toString());
             tv_points.setText(data.getPoints().toString());
             tv_author.setText(data.getAuthor());
+            itemView.setOnClickListener(v -> urlLiveData.postValue(data.getUrl()));
         }
     }
 }
