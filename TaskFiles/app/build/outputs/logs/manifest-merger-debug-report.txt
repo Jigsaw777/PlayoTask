@@ -45,6 +45,7 @@ MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/j
 MERGED from [androidx.print:print:1.0.0] /home/jigsaw/.gradle/caches/transforms-2/files-2.1/d31a9dbc3f8404c541e987748c42963b/print-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] /home/jigsaw/.gradle/caches/transforms-2/files-2.1/699bc310780b1730bce8fe271ffeca8b/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [io.reactivex:rxandroid:1.2.1] /home/jigsaw/.gradle/caches/transforms-2/files-2.1/40f04ee4b553349e066934799b282d21/rxandroid-1.2.1/AndroidManifest.xml:15:1-21:12
+MERGED from [com.google.android:flexbox:2.0.0] /home/jigsaw/.gradle/caches/transforms-2/files-2.1/703eb3ba5ee142b89add1393dc46cef5/flexbox-2.0.0/AndroidManifest.xml:17:1-26:12
 INJECTED from /home/jigsaw/Desktop/PlayoTasks/PlayoTask/TaskFiles/app/src/main/AndroidManifest.xml:2:1-23:12
 INJECTED from /home/jigsaw/Desktop/PlayoTasks/PlayoTask/TaskFiles/app/src/main/AndroidManifest.xml:2:1-23:12
 INJECTED from /home/jigsaw/Desktop/PlayoTasks/PlayoTask/TaskFiles/app/src/main/AndroidManifest.xml:2:1-23:12
@@ -192,6 +193,8 @@ MERGED from [androidx.interpolator:interpolator:1.0.0] /home/jigsaw/.gradle/cach
 MERGED from [androidx.interpolator:interpolator:1.0.0] /home/jigsaw/.gradle/caches/transforms-2/files-2.1/699bc310780b1730bce8fe271ffeca8b/interpolator-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [io.reactivex:rxandroid:1.2.1] /home/jigsaw/.gradle/caches/transforms-2/files-2.1/40f04ee4b553349e066934799b282d21/rxandroid-1.2.1/AndroidManifest.xml:19:5-43
 MERGED from [io.reactivex:rxandroid:1.2.1] /home/jigsaw/.gradle/caches/transforms-2/files-2.1/40f04ee4b553349e066934799b282d21/rxandroid-1.2.1/AndroidManifest.xml:19:5-43
+MERGED from [com.google.android:flexbox:2.0.0] /home/jigsaw/.gradle/caches/transforms-2/files-2.1/703eb3ba5ee142b89add1393dc46cef5/flexbox-2.0.0/AndroidManifest.xml:22:5-24:41
+MERGED from [com.google.android:flexbox:2.0.0] /home/jigsaw/.gradle/caches/transforms-2/files-2.1/703eb3ba5ee142b89add1393dc46cef5/flexbox-2.0.0/AndroidManifest.xml:22:5-24:41
 INJECTED from /home/jigsaw/Desktop/PlayoTasks/PlayoTask/TaskFiles/app/src/main/AndroidManifest.xml
 INJECTED from /home/jigsaw/Desktop/PlayoTasks/PlayoTask/TaskFiles/app/src/main/AndroidManifest.xml
 	android:targetSdkVersion

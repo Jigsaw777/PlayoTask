@@ -68,6 +68,8 @@ attr alertDialogButtonGroupStyle
 attr alertDialogCenterButtons
 attr alertDialogStyle
 attr alertDialogTheme
+attr alignContent
+attr alignItems
 attr allowStacking
 attr alpha
 attr alphabeticModifiers
@@ -139,6 +141,9 @@ attr dialogPreferredPadding
 attr dialogTheme
 attr displayOptions
 attr divider
+attr dividerDrawable
+attr dividerDrawableHorizontal
+attr dividerDrawableVertical
 attr dividerHorizontal
 attr dividerPadding
 attr dividerVertical
@@ -166,6 +171,8 @@ attr fastScrollHorizontalTrackDrawable
 attr fastScrollVerticalThumbDrawable
 attr fastScrollVerticalTrackDrawable
 attr firstBaselineToTopHeight
+attr flexDirection
+attr flexWrap
 attr font
 attr fontFamily
 attr fontProviderAuthority
@@ -192,10 +199,12 @@ attr indeterminateProgressStyle
 attr initialActivityCount
 attr isLightTheme
 attr itemPadding
+attr justifyContent
 attr keylines
 attr lastBaselineToBottomHeight
 attr layout
 attr layoutManager
+attr layout_alignSelf
 attr layout_anchor
 attr layout_anchorGravity
 attr layout_behavior
@@ -243,6 +252,9 @@ attr layout_constraintWidth_percent
 attr layout_dodgeInsetEdges
 attr layout_editor_absoluteX
 attr layout_editor_absoluteY
+attr layout_flexBasisPercent
+attr layout_flexGrow
+attr layout_flexShrink
 attr layout_goneMarginBottom
 attr layout_goneMarginEnd
 attr layout_goneMarginLeft
@@ -251,7 +263,13 @@ attr layout_goneMarginStart
 attr layout_goneMarginTop
 attr layout_insetEdge
 attr layout_keyline
+attr layout_maxHeight
+attr layout_maxWidth
+attr layout_minHeight
+attr layout_minWidth
 attr layout_optimizationLevel
+attr layout_order
+attr layout_wrapBefore
 attr lineHeight
 attr listChoiceBackgroundIndicator
 attr listChoiceIndicatorMultipleAnimated
@@ -271,6 +289,7 @@ attr listPreferredItemPaddingStart
 attr logo
 attr logoDescription
 attr maxButtonHeight
+attr maxLine
 attr measureWithLargestChild
 attr menu
 attr multiChoiceItemLayout
@@ -307,6 +326,9 @@ attr seekBarStyle
 attr selectableItemBackground
 attr selectableItemBackgroundBorderless
 attr showAsAction
+attr showDivider
+attr showDividerHorizontal
+attr showDividerVertical
 attr showDividers
 attr showText
 attr showTitle
@@ -777,7 +799,9 @@ id alertTitle
 id all
 id always
 id async
+id auto
 id barrier
+id baseline
 id beginning
 id blocking
 id bottom
@@ -793,6 +817,8 @@ id chronometer
 id clip_horizontal
 id clip_vertical
 id collapseActionView
+id column
+id column_reverse
 id content
 id contentPanel
 id custom
@@ -812,6 +838,8 @@ id expanded_menu
 id fill
 id fill_horizontal
 id fill_vertical
+id flex_end
+id flex_start
 id forever
 id fragment_container_view_tag
 id gone
@@ -842,6 +870,7 @@ id normal
 id notification_background
 id notification_main_column
 id notification_main_column_container
+id nowrap
 id off
 id on
 id packed
@@ -854,6 +883,8 @@ id radio
 id right
 id right_icon
 id right_side
+id row
+id row_reverse
 id rv_news_items
 id screen
 id scrollIndicatorDown
@@ -875,6 +906,9 @@ id shortcut
 id showCustom
 id showHome
 id showTitle
+id space_around
+id space_between
+id space_evenly
 id spacer
 id split_action_bar
 id spread
@@ -885,6 +919,7 @@ id src_over
 id standard
 id start
 id status_bar_latest_event_content
+id stretch
 id submenuarrow
 id submit_area
 id tabMode
@@ -896,6 +931,7 @@ id tag_screen_reader_focusable
 id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
+id tags_layout
 id text
 id text2
 id textSpacerNoButtons
@@ -906,6 +942,15 @@ id titleDividerNoCustom
 id title_template
 id top
 id topPanel
+id tv_author
+id tv_author_text
+id tv_comments
+id tv_comments_text
+id tv_date
+id tv_date_text
+id tv_points
+id tv_points_text
+id tv_title
 id unchecked
 id uniform
 id up
@@ -914,6 +959,7 @@ id visible_removing_fragment_view_tag
 id withText
 id wrap
 id wrap_content
+id wrap_reverse
 integer abc_config_activityDefaultDur
 integer abc_config_activityShortDur
 integer cancel_button_image_alpha
@@ -956,6 +1002,7 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_main
 layout custom_dialog
+layout news_item
 layout notification_action
 layout notification_action_tombstone
 layout notification_media_action
@@ -1387,6 +1434,8 @@ styleable ConstraintSet android_orientation android_id android_visibility androi
 styleable CoordinatorLayout keylines statusBarBackground
 styleable CoordinatorLayout_Layout android_layout_gravity layout_anchor layout_anchorGravity layout_behavior layout_dodgeInsetEdges layout_insetEdge layout_keyline
 styleable DrawerArrowToggle arrowHeadLength arrowShaftLength barLength color drawableSize gapBetweenBars spinBars thickness
+styleable FlexboxLayout alignContent alignItems dividerDrawable dividerDrawableHorizontal dividerDrawableVertical flexDirection flexWrap justifyContent maxLine showDivider showDividerHorizontal showDividerVertical
+styleable FlexboxLayout_Layout layout_alignSelf layout_flexBasisPercent layout_flexGrow layout_flexShrink layout_maxHeight layout_maxWidth layout_minHeight layout_minWidth layout_order layout_wrapBefore
 styleable FontFamily fontProviderAuthority fontProviderCerts fontProviderFetchStrategy fontProviderFetchTimeout fontProviderPackage fontProviderQuery
 styleable FontFamilyFont android_font android_fontWeight android_fontStyle android_ttcIndex android_fontVariationSettings font fontStyle fontVariationSettings fontWeight ttcIndex
 styleable Fragment android_name android_id android_tag

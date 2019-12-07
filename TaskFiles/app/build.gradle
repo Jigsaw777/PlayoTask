@@ -85,4 +85,7 @@ dependencies {
 
     //multidex support
     implementation "com.android.support:multidex:1.0.3"
+
+    //flexbox layout
+    implementation 'com.google.android:flexbox:2.0.0'
 }
